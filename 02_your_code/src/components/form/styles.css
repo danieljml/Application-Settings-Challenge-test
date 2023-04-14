@@ -1,0 +1,92 @@
+.form__inputs {
+  display: grid;
+  align-items: end;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 15px;
+}
+
+.form__input > input,
+.form__input > select {
+  padding: 20px 15px;
+}
+
+.form__inputs > input::-webkit-input-placeholder {
+  color: black;
+  opacity: 1;
+}
+
+.form__input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px 10px;
+}
+
+.form__inputs input,
+.form__inputs label {
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+.form__inputs p {
+  margin-bottom: 5px;
+}
+
+.features__container {
+  display: grid;
+  row-gap: 10px;
+}
+
+.form__features {
+  margin-top: 30px;
+}
+
+.form__feature {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.form__features p {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.form__btn-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.form__btn-container .editIcon {
+  font-size: 1.1rem;
+}
+
+.form__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 1.35rem;
+}
+
+.form__btn:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+
+.form__btn.active {
+  color: white;
+  background-color: blue;
+}
+
+@media screen and (width <= 700px) {
+  .form__inputs {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    font-size: 0.65rem;
+  }
+}

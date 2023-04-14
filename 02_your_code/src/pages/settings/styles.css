@@ -1,0 +1,28 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: white;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  padding: 20px 25px;
+  border-radius: 10px;
+}
+
+.settings_title {
+  font-size: 1.9rem;
+  margin: 4px 0;
+}
+
+.settings_subtitle {
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+
+@media screen and (width <= 700px) {
+  .settings {
+    font-size: 0.8rem;
+  }
+}

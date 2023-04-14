@@ -1,0 +1,51 @@
+name: QA 02_your_code
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Check solution
+      id: check
+      run: |
+        cd 02_your_code &&
+        OUTPUT=$(ls | wc -l) &&
+        echo "::set-output name=OUTPUT::$OUTPUT"
+
+    # Will only run if there are files in the solution directory
+    - name: Install dependencies
+      if: steps.check.outputs.OUTPUT > 1
+      run: |
+        cd 02_your_code
+        npm install
+
+    - name: Lint with node
+      if: steps.check.outputs.OUTPUT > 1
+      run: |
+        cd 02_your_code
+        npm run lint
+
+    - name: Unit tests
+      if: steps.check.outputs.OUTPUT > 1
+      run: |
+        cd 02_your_code
+        npm test
